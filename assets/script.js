@@ -5,64 +5,60 @@ var charLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var charCap = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", "?", "=", "_"]
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+var output = [];
+var options = [];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {                               //first window prompt-selecting character amount
+function writePassword() {
 
 
-  //  var chooseCap = window.prompt("Would you like to include capital letters?\nType Yes Or No?"); //if good, moves on to next prompt
-
-  //     if (chooseCap == "yes") {
-
-  //     } else if (chooseCap == "no") {
-
-  //     }
-
-  //   var chooseLower = window.prompt("Would you like to include lowercase letters?\nType Yes or No?");
-
-  //    if (chooseLower == "yes") {
-
-  //    } else if (chooseLower == "no") {
-
-  //    }
-
-  //   var chooseSpecial = window.prompt("Would you like to include special characters?\nType Yes or No");
-
-  //    if (chooseSpecial == "yes") {
-
-  //    } else if (chooseSpecial == "no") {
-
-  //    }   
-
-  //   var chooseNum = window.prompt("Would you like to include numbers?\nType Yes or No");
-
-  //    if (chooseNum == "yes") {
-
-  //    } else if (chooseNum == "no") {
-
-  // //    }
-
-  //    console.log(chooseNum);
-  //    console.log(chooseSpecial);
-  //    console.log(chooseLower);
-  //    console.log(chooseCap);
-  //    console.log(chooseCharAmount);
   function generatePassword() {
     var chooseCharAmount = window.prompt("How many characters would you like your password to be?\nChoose a number between 8 and 128.");
 
     if (chooseCharAmount < 8 || chooseCharAmount > 128) {         //checking user input to see if its within the acceptable range
       window.alert("Number of characters is out of range, try again.");
+      
 
     } else if (chooseCharAmount >= 8 && chooseCharAmount <= 128) {
-     var output = [];
-       for (var i = 0; i < chooseCharAmount; i++) {
-        output.push(charLower[Math.floor(Math.random() * chooseCharAmount)])
-       }
+   
+    } 
+    var chooseCap = confirm("Would you like to include capital letters?");
+    if (chooseCap) {
+      output.push(charCap[Math.floor(Math.random() * charCap.length)]);
+      options.push(charCap);
+      // console.log(output);
+      // console.log(options);
+
     }
-    return 
+    var chooseLow = confirm("Would you like your password to include lowercase letters?");
+    if (chooseLow) {
+      output.push(charLower[Math.floor(Math.random() * charLower.length)]);
+      options.push(charLower);
+    //   console.log(output);
+    //   console.log(charCap);
+      }
+    // var chooseSpecial = confirm("Would you like your password to include special characters?");
+    // if (chooseSpecial) {
+    //   output += specialChar;
+    // }
+    // var chooseNum = confirm("Would you like your password to include numbers in your password?");
+    // if (chooseNum) {
+    //   output += numbers;
+    // }
+  
+
+    var remainingChoices = chooseCharAmount - output.length;
+    
+     console.log(options.flat());
+    
+    for (var i = 0; i < remainingChoices; i++) {
+      output.push(options.flat()[Math.floor(Math.random() * options.flat().length)]);
+    }
+
+    return (output);
   }
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
