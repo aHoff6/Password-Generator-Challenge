@@ -58,7 +58,9 @@ function writePassword() {
       output.push(options.flat()[Math.floor(Math.random() * options.flat().length)]);           // ".flat()" was found with a tutor when trying to store randomly selected characters to array
     }
 
-    return (output);
+    
+
+    return (output.join(""));       // returning output and joining arrays so there is no comma in between characters
   }
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
