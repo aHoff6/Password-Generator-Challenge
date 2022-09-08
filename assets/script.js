@@ -52,10 +52,10 @@ function writePassword() {
 
     var remainingChoices = chooseCharAmount - output.length;
     
-     console.log(options.flat());
+    //  console.log(options.flat());                      
     
-    for (var i = 0; i < remainingChoices; i++) {
-      output.push(options.flat()[Math.floor(Math.random() * options.flat().length)]);
+    for (var i = 0; i < remainingChoices; i++) {             // for loop pulling data out of chosen arrays
+      output.push(options.flat()[Math.floor(Math.random() * options.flat().length)]);           // ".flat()" was found with a tutor when trying to store randomly selected characters to array
     }
 
     return (output);
