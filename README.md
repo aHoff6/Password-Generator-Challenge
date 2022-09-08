@@ -20,7 +20,7 @@ by clicking the green "code" button and copying the URL.
 When user clicks "Generate Password" button, they are met with the first prompt asking for the amount of characters they would like their password to be. After inputting their character amount, another prompt will show up asking if they would like to include capital letters in their password, if user clicks "yes" their generated password will include capital letters or click "cancel" to exclude capital letters. The same prompts will happen for lowercase letters, special characters, and numbers. After all prompts are completed, the password will generate and display in the text box.
 
 ## Credits
-
+https://developer.mozilla.org/en-US/
 https://stackoverflow.com/
 https://www.w3schools.com
 
@@ -29,6 +29,8 @@ https://www.w3schools.com
 None
 ## Deployed Link
 
-https://ahoff6.github.io/Advanced-CSS-Challenge-2/
+
 
 ## Reference picture
+
+<img width="1280" alt="Password Generator Screenshot" src="https://user-images.githubusercontent.com/109759461/189230138-3cac727e-dab0-4ab7-855c-2e562548923f.png">
